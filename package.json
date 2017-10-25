@@ -7,8 +7,13 @@
 		"test": "jest"
 	},
 	"dependencies": {
+		"axios": "^0.17.0",
+		"body-parser": "^1.18.2",
+		"cors": "^2.8.4",
+		"express": "^4.16.2",
+		"massive": "^4.4.0",
 		"react": "16.0.0-beta.5",
-		"react-native": "0.49.3"
+		"react-native": "^0.49.3"
 	},
 	"devDependencies": {
 		"babel-jest": "21.2.0",

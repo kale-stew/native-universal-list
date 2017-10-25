@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { Header, Card } from './common';
 
 class Item extends React.Component {
@@ -7,14 +7,31 @@ class Item extends React.Component {
         super(props);
     }
 
+    handleCheck() {
+        let checked = this.value;
+        // change icon from ☐ to ☑︎
+        // if () {
+        //     return <Text style={{ paddingLeft: 5, fontSize: 20, paddingTop: 3 }}>☑︎</Text>;
+        // } else {
+        //     return <Text style={{ paddingLeft: 5, fontSize: 20, paddingTop: 3 }}>☐</Text>;
+        // };
+    }
+
     render(props) {
         return (
             <View style={styles.containerStyle}>
-                <Text style={{ paddingLeft: 5 }}>❑</Text>
+                <TouchableOpacity>
+                    <Text style={{ paddingLeft: 5, fontSize: 20, paddingTop: 3 }}>☐</Text>
+                </TouchableOpacity>
                 <Text style={styles.labelStyle}>{/*{props.children}*/}</Text>
                 <View style={styles.buttonContainer}>
-                    <Text>✎</Text>
-                    <Text>✂︎</Text>
+                    <TouchableOpacity>
+                        <Text style={{ fontSize: 20, paddingRight: 5 }}>✎</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity>
+                        <Text style={{ fontSize: 20 }}>✗</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         );
@@ -41,7 +58,7 @@ const styles = {
     },
 
     labelStyle: {
-        flexBasis: '85%'
+        flexBasis: '78%'
     },
 
     buttonContainer: {

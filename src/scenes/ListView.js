@@ -1,14 +1,31 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, ScrollView } from 'react-native';
+import { Header } from '../components/common';
+
+// components
+import NewItem from '../components/NewItem';
+import Item from '../components/Item';
 
 class ListView extends React.Component {
     render() {
-        return(
-            <View>
-                <Text>A List</Text>
+        return (
+            <View style={styles.containerStyle}>
+                <ScrollView >
+                    <NewItem />
+                    <Item>
+                        {'this'}
+                    </Item>
+                </ScrollView>
             </View>
         )
     }
+};
+
+const styles = {
+    containerStyle: {
+        flex: 1,
+        paddingTop: 60
+    },
 }
 
 export default ListView;

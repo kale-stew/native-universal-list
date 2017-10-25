@@ -7,6 +7,7 @@ import NewItem from '../components/NewItem';
 import Item from '../components/Item';
 
 class ListView extends React.Component {
+
     render() {
         return (
             <View style={styles.containerStyle}>
@@ -24,7 +25,7 @@ class ListView extends React.Component {
 const styles = {
     containerStyle: {
         flex: 1,
-        paddingTop: 60
+        paddingTop: 40
     },
 }
 

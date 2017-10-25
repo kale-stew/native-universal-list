@@ -1,19 +1,71 @@
 import React from 'react';
+import firebase from 'firebase';
 import { View, Image, Text, TouchableOpacity } from 'react-native';
 import { 
     Card, 
     CardSection, 
     Input, 
     Button, 
-    Header 
+    Header,
+    Spinner 
 } from '../components/common';
 
 import SignUp from './SignUp';
 
 class SignIn extends React.Component {
+    state = {
+        email: '',
+        password: '',
+        error: '',
+        loading: false
+    };
+
     static navigationOptions = {
         title: 'Sign In'
     };
+    
+    onButtonPress() {
+        const { email, password } = this.state;
+
+        this.setState({
+            error: '',
+            loading: true
+        });
+
+        firebase.auth().signInWithEmailAndPassword( email, password )
+            .then(this.onLoginSuccess.bind( this ))
+            .catch(this.onLoginFail.bind( this ));
+
+    }
+
+    onLoginSuccess() {
+        this.setState({
+            email: '',
+            password: '',
+            error: '',
+            loading: false
+        });
+    }
+
+    onLoginFail() {
+        this.setState({
+            error: 'Authentication Failed',
+            loading: true
+        });
+    }
+
+    renderButton() {
+        if (this.state.loading) {
+            return <Spinner size="small" />;
+        }
+
+        return (
+            <View style={styles.buttonCard}>
+                <Button onPress={ this.onButtonPress.bind( this ) }>
+                    Log In</Button>
+            </View>
+        );
+    }
 
     render() {
         const { navigate } = this.props.navigation;
@@ -23,18 +75,31 @@ class SignIn extends React.Component {
                 <Image source={ require('../assets/sign-in.png') } style={styles.headerImage}/>
 
                     <Card>
-                        <CardSection><Input label="Email" placeholderText="your_email@gmail.com"/></CardSection>
-                        <CardSection><Input label="Password" placeholderText="password" secureTextEntry /></CardSection>
+                        <CardSection>
+                            <Input 
+                                label="Email" 
+                                placeholderText="your_email@gmail.com"
+                                value={ this.state.email }
+                                onChangeText={ text => this.setState({ email: text }) }
+                            />
+                        </CardSection>
+                        <CardSection>
+                            <Input 
+                                label="Password" 
+                                placeholderText="*********" 
+                                value={ this.state.password }
+                                onChangeText={ text => this.setState({ password: text })}
+                                secureTextEntry 
+                            />
+                        </CardSection>
                     </Card>
                     <Card>
-                        <View style={styles.buttonCard}>
-                            <Button>Log In</Button>
-                        </View>
+                        {this.renderButton()}
                     </Card>
                     <View style={{ paddingTop: 20, flexDirection: 'row', justifyContent: 'center' }}>
                         <Text>New here?</Text>
                         <TouchableOpacity onPress={ () =>
-                            navigate('SignUp', { name: SignUp } ) }>
+                            navigate('SignUp', { name: SignUp }) }>
                             <Text> Sign Up </Text>
                         </TouchableOpacity>
                     </View>

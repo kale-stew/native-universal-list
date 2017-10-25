@@ -35,16 +35,16 @@ class Item extends React.Component {
         return (
             <View style={styles.containerStyle}>
                 <TouchableOpacity>
-                    <Text style={{ paddingLeft: 5, fontSize: 20, paddingTop: 3 }}>☐</Text>
+                    <Text style={{ paddingLeft: 5, fontSize: 22, paddingTop: 3 }}>☐</Text>
                 </TouchableOpacity>
                 <Text style={styles.labelStyle}>{/*{props.children}*/}</Text>
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity>
-                        <Text style={{ fontSize: 20, paddingRight: 5 }}>✎</Text>
+                        <Text style={{ fontSize: 22, paddingRight: 5 }}>✎</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity>
-                        <Text style={{ fontSize: 20 }}>✗</Text>
+                        <Text style={{ fontSize: 22 }}>✗</Text>
                     </TouchableOpacity>
                 </View>
             </View>

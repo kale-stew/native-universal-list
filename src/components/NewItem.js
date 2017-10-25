@@ -40,8 +40,9 @@ const styles = {
     },
     
     labelStyle: {
-        fontSize: 15,
+        fontSize: 20,
         flex: 2,
+        paddingLeft: 1,
         paddingRight: 35,
         paddingTop: 10
     }

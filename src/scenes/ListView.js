@@ -5,12 +5,16 @@ import {
     TouchableOpacity, 
     Text 
 } from 'react-native';
+import firebase from 'firebase';
 
 // components
 import NewItem from '../components/NewItem';
 import Item from '../components/Item';
 
 class ListView extends React.Component {
+    state = {
+        loggedIn: true
+    }
 
     render() {
         return (
@@ -20,7 +24,9 @@ class ListView extends React.Component {
                     <Item></Item>
                 </ScrollView>
                 <View style={styles.logout}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={ () =>
+                        {firebase.auth().signOut()}
+                    }>
                         <Text style={{ color: '#386C37' }}>Save & Logout</Text>
                     </TouchableOpacity>
                 </View>

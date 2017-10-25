@@ -11,9 +11,46 @@ import {
 import SignIn from './SignIn';
 
 class SignUp extends React.Component {
+    state = {
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+        loading: false
+    }
+
     static navigationOptions = {
         title: 'Sign Up'
     };
+
+    onButtonPress() {
+        const { firstName, lastName, email, password } = this.state;
+
+        this.setState({
+            error: '',
+            loading: true
+        });
+
+        firebase.auth().createUserWithEmailAndPassword( email, password )
+          .then(this.onSignUpSuccess.bind( this ))
+          .catch(this.onSignUpFail.bind( this ));
+    }
+
+    onSignUpSuccess() {
+        this.setState({
+            email: '',
+            password: '',
+            error: '',
+            loading: false
+        });
+    }
+
+    onSignUpFail() {
+        this.setState({
+            error: 'Authentication Failed',
+            loading: true
+        });
+    }
     
     render() {
         const { navigate } = this.props.navigation;

@@ -1,5 +1,10 @@
 import React from 'react';
-import { TextInput, View, Text } from 'react-native';
+import { 
+    TextInput, 
+    View, 
+    Text,
+    TouchableOpacity
+} from 'react-native';
 
 class NewItem extends React.Component {
     render() {
@@ -10,31 +15,35 @@ class NewItem extends React.Component {
                     autoCorrect={ false }
                     placeholder="Add an item to your list"
                 />
-                <Text style={ styles.labelStyle }>⏎</Text>
+                <TouchableOpacity>
+                    <Text style={ styles.labelStyle }>⏎</Text>
+                </TouchableOpacity>
             </View>
         )
     }
 };
 
 const styles = {
-    inputStyle: {
-        color: '#000',
-        paddingLeft: 40,
-        fontSize: 18,
-        lineHeight: 23,
-        flex: 2
-    },
-    
-    labelStyle: {
-        fontSize: 18,
-        flex: 1
-    },
-
     containerStyle: {
         height: 40,
         flex: 1,
         flexDirection: 'row',
         alignItems: 'center'
+    },
+
+    inputStyle: {
+        color: '#000',
+        paddingLeft: 40,
+        fontSize: 18,
+        lineHeight: 23,
+        flex: 1
+    },
+    
+    labelStyle: {
+        fontSize: 15,
+        flex: 2,
+        paddingRight: 35,
+        paddingTop: 10
     }
 };
 

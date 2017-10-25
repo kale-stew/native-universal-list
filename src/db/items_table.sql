@@ -1,9 +1,8 @@
-CREATE TABLE IF NOT EXISTS Items (
+CREATE TABLE IF NOT EXISTS items (
     itemID SERIAL PRIMARY KEY,
     userID INTEGER REFERENCES Users(id),
-    Name VARCHAR(100) NOT NULL,
-    Price INTEGER,
-    Category VARCHAR(100)
+    title VARCHAR(100) NOT NULL,
+    category VARCHAR(100)
 );
 
 -- 'user' is a reserved name in Postgres, 'userID' is the workaround

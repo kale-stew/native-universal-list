@@ -76,7 +76,8 @@ const styles = {
     },
 
     buttonContainer: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        justifyContent: 'flex-end'
     }
 };
 

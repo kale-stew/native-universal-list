@@ -8,10 +8,17 @@ import {
     Header 
 } from '../components/common';
 
+import SignIn from './SignIn';
+
 class SignUp extends React.Component {
+    static navigationOptions = {
+        title: 'Sign Up'
+    };
+    
     render() {
+        const { navigate } = this.props.navigation;
         return(
-            <View style={{ paddingTop: 60, marginLeft: 20, marginRight: 20 }}>
+            <View style={{ paddingTop: 20, marginLeft: 20, marginRight: 20 }}>
                 
                 <Image source={ require('../assets/sign-up.png') } style={styles.headerImage}/>
 
@@ -22,11 +29,15 @@ class SignUp extends React.Component {
                         <CardSection><Input label="Password" placeholderText="password" secureTextEntry /></CardSection>
                     </Card>
                     <Card>
-                        <CardSection><Button>Let's go!</Button></CardSection>
+                        <View style={styles.buttonCard}>
+                            <Button>Let's get started!</Button>
+                        </View>
                     </Card>
                     <View style={{ paddingTop: 20, flexDirection: 'row', justifyContent: 'center' }}>
                         <Text>or</Text>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={ () => 
+                            navigate('SignIn', {name: SignIn} )}
+                        >
                             <Text> Sign In</Text>
                         </TouchableOpacity>
                     </View>
@@ -43,9 +54,14 @@ const styles = {
         resizeMode: 'stretch'
     },
 
-    footerImage: {
-        width: 330,
-        height: 150
+    buttonCard: {
+        borderBottomWidth: 1,
+        padding: 5,
+        backgroundColor: '#4D9B69',
+        justifyContent: 'flex-start',
+        flexDirection: 'row',
+        borderColor: '#ddd',
+        position: 'relative'
     }
 }
 

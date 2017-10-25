@@ -1,6 +1,10 @@
 import React from 'react';
-import { View, ScrollView } from 'react-native';
-import { Header } from '../components/common';
+import { 
+    View, 
+    ScrollView, 
+    TouchableOpacity, 
+    Text 
+} from 'react-native';
 
 // components
 import NewItem from '../components/NewItem';
@@ -15,6 +19,11 @@ class ListView extends React.Component {
                     <NewItem />
                     <Item></Item>
                 </ScrollView>
+                <View style={styles.logout}>
+                    <TouchableOpacity>
+                        <Text style={{ color: '#386C37' }}>Save & Logout</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         )
     }
@@ -25,6 +34,13 @@ const styles = {
         flex: 1,
         paddingTop: 40
     },
+
+    logout: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignSelf: 'center', 
+        paddingBottom: 25
+    }
 }
 
 export default ListView;

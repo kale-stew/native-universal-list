@@ -22,3 +22,7 @@ This app allows you to tag items on a shopping list with a favorite store and, u
     - track items you don't need to update as often (spices, flours, canned goods)
     - edit and view each pantry item's expiration date
 - categories for list items, 'view by' category option 
+
+## screenshots:
+![Please Sign In](./src/assets/screenshots/sign-in.png)
+![Create a New Account](./src/assets/screenshots/sign-up.png)

@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { Header, Card, Icon } from './common';
-import icons from '../assets/icons';
+import { Header, Card } from './common';
 
 class Item extends React.Component {
     constructor(props) {

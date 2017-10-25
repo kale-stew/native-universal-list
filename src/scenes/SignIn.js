@@ -8,26 +8,24 @@ import {
     Header 
 } from '../components/common';
 
-class SignUp extends React.Component {
+class SignIn extends React.Component {
     render() {
         return(
             <View style={{ paddingTop: 60, marginLeft: 20, marginRight: 20 }}>
                 
-                <Image source={ require('../assets/sign-up.png') } style={styles.headerImage}/>
+                <Image source={ require('../assets/sign-in.png') } style={styles.headerImage}/>
 
                     <Card>
-                        <CardSection><Input label="First Name" placeholderText="Kylie"/></CardSection>
-                        <CardSection><Input label="Last Name" placeholderText="Stewart"/></CardSection>
                         <CardSection><Input label="Email" placeholderText="your_email@gmail.com"/></CardSection>
                         <CardSection><Input label="Password" placeholderText="password" secureTextEntry /></CardSection>
                     </Card>
                     <Card>
-                        <CardSection><Button>Let's go!</Button></CardSection>
+                        <CardSection><Button>Log In</Button></CardSection>
                     </Card>
                     <View style={{ paddingTop: 20, flexDirection: 'row', justifyContent: 'center' }}>
-                        <Text>or</Text>
+                        <Text>New here?</Text>
                         <TouchableOpacity>
-                            <Text> Sign In</Text>
+                            <Text> Sign Up </Text>
                         </TouchableOpacity>
                     </View>
 
@@ -49,4 +47,4 @@ const styles = {
     }
 }
 
-export default SignUp;
+export default SignIn;

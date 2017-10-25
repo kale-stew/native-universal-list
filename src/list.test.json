@@ -1,0 +1,50 @@
+[
+    {
+        itemId: 1,
+        userId: 1,
+        title: butter,
+        category: dairy
+    },
+    {
+        itemId: 2,
+        userId: 1,
+        title: milk,
+        category: dairy
+    },
+    {
+        itemId: 3,
+        userId: 1,
+        title: coffee,
+        category: dry goods
+    },
+    {
+        itemId: 4,
+        userId: 1,
+        title: apples,
+        category: fruit
+    },
+    {
+        itemId: 5,
+        userId: 1,
+        title: broccolli,
+        category: veggies
+    },
+    {
+        itemId: 6,
+        userId: 1,
+        title: bacon,
+        category: meat
+    },
+    {
+        itemId: 7,
+        userId: 1,
+        title: chicken thighs,
+        category: meat
+    },
+    {
+        itemId: 8,
+        userId: 1,
+        title: strawberries,
+        category: fruit
+    }
+]

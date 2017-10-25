@@ -13,9 +13,7 @@ class ListView extends React.Component {
             <View style={styles.containerStyle}>
                 <ScrollView >
                     <NewItem />
-                    <Item>
-                        {'this'}
-                    </Item>
+                    <Item></Item>
                 </ScrollView>
             </View>
         )

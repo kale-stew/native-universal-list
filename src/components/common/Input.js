@@ -31,7 +31,7 @@ const styles = {
 
     labelStyle: {
         fontSize: 18,
-        paddingLeft: 20,
+        paddingLeft: 15,
         flex: 1
     },
 

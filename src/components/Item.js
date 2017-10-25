@@ -5,16 +5,30 @@ import { Header, Card } from './common';
 class Item extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            checked: false
+        }
+
+        this._onPressCheckbox.bind( this );
     }
 
-    handleCheck() {
-        let checked = this.value;
+    _onPressCheckbox(checked) {
+        
+
         // change icon from ☐ to ☑︎
-        // if () {
-        //     return <Text style={{ paddingLeft: 5, fontSize: 20, paddingTop: 3 }}>☑︎</Text>;
-        // } else {
-        //     return <Text style={{ paddingLeft: 5, fontSize: 20, paddingTop: 3 }}>☐</Text>;
-        // };
+        switch(checked) {
+            case checked: {
+                return <Text style={{ paddingLeft: 5, fontSize: 20, paddingTop: 3 }}>☑︎</Text>;
+            }
+
+            case (!checked): {
+                return <Text style={{ paddingLeft: 5, fontSize: 20, paddingTop: 3 }}>☐</Text>;
+            }
+
+            default: {
+                return <Text style={{ paddingLeft: 5, fontSize: 20, paddingTop: 3 }}>☐</Text>;
+            }
+        }
     }
 
     render(props) {

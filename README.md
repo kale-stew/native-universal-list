@@ -33,4 +33,4 @@ URL | HTTP Verb | REQ | RES
 /api/items/:id | PUT | JSON string | Update an existing item
 /api/items/:id | DELETE | empty | Delete an item from the list
 
-![gif](https://www.dropbox.com/s/e7hyoao9ezeffm2/dothis.gif?dl=0)
+![gif](./assets/screenshots/auth-flow.gif)

@@ -1,11 +1,13 @@
 import React from 'react';
+import firebase from 'firebase';
 import { View, Image, Text, TouchableOpacity } from 'react-native';
 import { 
     Card, 
     CardSection, 
     Input, 
     Button, 
-    Header 
+    Header,
+    Spinner
 } from '../components/common';
 
 import SignIn from './SignIn';
@@ -16,6 +18,7 @@ class SignUp extends React.Component {
         lastName: '',
         email: '',
         password: '',
+        error: '',
         loading: false
     }
 
@@ -24,7 +27,7 @@ class SignUp extends React.Component {
     };
 
     onButtonPress() {
-        const { firstName, lastName, email, password } = this.state;
+        const { email, password } = this.state;
 
         this.setState({
             error: '',
@@ -32,8 +35,8 @@ class SignUp extends React.Component {
         });
 
         firebase.auth().createUserWithEmailAndPassword( email, password )
-          .then(this.onSignUpSuccess.bind( this ))
-          .catch(this.onSignUpFail.bind( this ));
+        .then(this.onSignUpSuccess.bind( this ))
+        .catch(this.onSignUpFail.bind( this ));
     }
 
     onSignUpSuccess() {
@@ -47,9 +50,23 @@ class SignUp extends React.Component {
 
     onSignUpFail() {
         this.setState({
+            password: '',
             error: 'Authentication Failed',
-            loading: true
+            loading: false
         });
+    }
+
+    renderButton() {
+        if (this.state.loading) {
+            return <View style={{ margin: 20 }}><Spinner size="small" /></View>;
+        }
+
+        return (
+            <View style={styles.buttonCard}>
+                <Button onPress={ this.onButtonPress.bind( this ) }>
+                    Let's get started!</Button>
+            </View>
+        );
     }
     
     render() {
@@ -65,11 +82,15 @@ class SignUp extends React.Component {
                         <CardSection><Input label="Email" placeholderText="your_email@gmail.com"/></CardSection>
                         <CardSection><Input label="Password" placeholderText="password" secureTextEntry /></CardSection>
                     </Card>
+
+                    <Text style={styles.errorStyle}>
+                        {this.state.error}
+                    </Text>
+
                     <Card>
-                        <View style={styles.buttonCard}>
-                            <Button>Let's get started!</Button>
-                        </View>
+                        {this.renderButton()}
                     </Card>
+
                     <View style={{ paddingTop: 20, flexDirection: 'row', justifyContent: 'center' }}>
                         <Text>or</Text>
                         <TouchableOpacity onPress={ () => 
@@ -99,6 +120,14 @@ const styles = {
         flexDirection: 'row',
         borderColor: '#ddd',
         position: 'relative'
+    },
+
+    errorStyle: {
+        color: 'red',
+        fontSize: 20,
+        alignSelf: 'center',
+        padding: 2,
+        marginTop: 6
     }
 }
 

@@ -119,7 +119,8 @@ const styles = {
     headerImage: {
         width: 335,
         height: 110,
-        resizeMode: 'stretch'
+        resizeMode: 'stretch',
+        marginBottom: 14
     },
 
     buttonCard: {

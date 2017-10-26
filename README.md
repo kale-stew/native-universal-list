@@ -23,6 +23,14 @@ This app allows you to tag items on a shopping list with a favorite store and, u
     - edit and view each pantry item's expiration date
 - categories for list items, 'view by' category option 
 
-## screenshots:
-![Please Sign In](./src/assets/screenshots/sign-in.png)
-![Create a New Account](./src/assets/screenshots/sign-up.png)
+## My HTTP requests
+
+URL | HTTP Verb | REQ | RES
+--- | --------- | --- | ----
+/api/items | GET | empty | Return all items
+/api/items | POST | JSON string | New item added to list
+/api/items/:id | GET | empty | Return a single item
+/api/items/:id | PUT | JSON string | Update an existing item
+/api/items/:id | DELETE | empty | Delete an item from the list
+
+![gif](https://www.dropbox.com/s/e7hyoao9ezeffm2/dothis.gif?dl=0)

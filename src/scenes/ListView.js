@@ -19,15 +19,17 @@ class ListView extends React.Component {
 
     render() {
         const items = ['milk', 'butter', 'eggs', 'cheese'];
-        const list = items.map( function(item) {
-            return <Item>{item}</Item>;
+        const list = items.map( function( item, index ) {
+            return <Item key={index}>{item}</Item>;
         })
 
         return (
             <View style={styles.containerStyle}>
                 <ScrollView>
                     <NewItem />
-                    <View style={styles.listContainer}>
+                    <View 
+                        style={styles.listContainer}
+                    >
                         {list}
                     </View>
                     <View style={styles.logout}>

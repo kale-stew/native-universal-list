@@ -35,7 +35,6 @@ class SignIn extends React.Component {
         firebase.auth().signInWithEmailAndPassword( email, password )
             .then(this.onLoginSuccess.bind( this ))
             .catch(this.onLoginFail.bind( this ));
-
     }
 
     onLoginSuccess() {
@@ -49,14 +48,15 @@ class SignIn extends React.Component {
 
     onLoginFail() {
         this.setState({
+            password: '',
             error: 'Authentication Failed',
-            loading: true
+            loading: false
         });
     }
 
     renderButton() {
         if (this.state.loading) {
-            return <Spinner size="small" />;
+            return <View style={{ margin: 20 }}><Spinner size="small" /></View>;
         }
 
         return (
@@ -93,9 +93,15 @@ class SignIn extends React.Component {
                             />
                         </CardSection>
                     </Card>
+
+                    <Text style={styles.errorStyle}>
+                        {this.state.error}
+                    </Text>
+
                     <Card>
                         {this.renderButton()}
                     </Card>
+
                     <View style={{ paddingTop: 20, flexDirection: 'row', justifyContent: 'center' }}>
                         <Text>New here?</Text>
                         <TouchableOpacity onPress={ () =>
@@ -124,6 +130,14 @@ const styles = {
         flexDirection: 'row',
         borderColor: '#ddd',
         position: 'relative'
+    },
+
+    errorStyle: {
+        color: 'red',
+        fontSize: 20,
+        alignSelf: 'center',
+        padding: 2,
+        marginTop: 6
     }
 }
 

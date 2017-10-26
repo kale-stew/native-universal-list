@@ -14,8 +14,6 @@ const styles = {
         borderWidth: 1,
         borderRadius: 2,
         borderColor: '#ddd',
-        borderBottomWidth: 0,
-        // if there is no width === no visibility 
         shadowColor: '#000',
         shadowOffset: {
             width: 0,

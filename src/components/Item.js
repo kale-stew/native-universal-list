@@ -2,54 +2,25 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { Header, Card } from './common';
 
-class Item extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            checked: false
-        }
+const Item = (props) => {
 
-        this._onPressCheckbox.bind( this );
-    }
-
-    _onPressCheckbox(checked) {
-        
-
-        // change icon from ☐ to ☑︎
-        switch(checked) {
-            case checked: {
-                return <Text style={{ paddingLeft: 5, fontSize: 20, paddingTop: 3 }}>☑︎</Text>;
-            }
-
-            case (!checked): {
-                return <Text style={{ paddingLeft: 5, fontSize: 20, paddingTop: 3 }}>☐</Text>;
-            }
-
-            default: {
-                return <Text style={{ paddingLeft: 5, fontSize: 20, paddingTop: 3 }}>☐</Text>;
-            }
-        }
-    }
-
-    render(props) {
-        return (
-            <View style={styles.containerStyle}>
+    return (
+        <View style={styles.containerStyle}>
+            <TouchableOpacity>
+                <Text style={{ paddingLeft: 5, fontSize: 22, paddingTop: 3 }}>☐</Text>
+            </TouchableOpacity>
+            <Text style={styles.labelStyle}>{props.children}</Text>
+            <View style={styles.buttonContainer}>
                 <TouchableOpacity>
-                    <Text style={{ paddingLeft: 5, fontSize: 22, paddingTop: 3 }}>☐</Text>
+                    <Text style={{ fontSize: 22, paddingRight: 5 }}>✎</Text>
                 </TouchableOpacity>
-                <Text style={styles.labelStyle}>{/*{props.children}*/}</Text>
-                <View style={styles.buttonContainer}>
-                    <TouchableOpacity>
-                        <Text style={{ fontSize: 22, paddingRight: 5 }}>✎</Text>
-                    </TouchableOpacity>
 
-                    <TouchableOpacity>
-                        <Text style={{ fontSize: 22 }}>✗</Text>
-                    </TouchableOpacity>
-                </View>
+                <TouchableOpacity>
+                    <Text style={{ fontSize: 22 }}>✗</Text>
+                </TouchableOpacity>
             </View>
-        );
-    }
+        </View>
+    );
 };
 
 const styles = {
@@ -72,7 +43,11 @@ const styles = {
     },
 
     labelStyle: {
-        flexBasis: '78%'
+        flexBasis: '78%',
+        color: 'black',
+        fontSize: 20,
+        paddingLeft: 10,
+        paddingTop: 1
     },
 
     buttonContainer: {

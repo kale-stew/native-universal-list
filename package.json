@@ -15,8 +15,10 @@
 		"firebase": "^4.6.0",
 		"massive": "^4.4.0",
 		"react": "16.0.0-beta.5",
+		"react-motion": "^0.5.2",
 		"react-native": "^0.49.3",
-		"react-navigation": "^1.0.0-beta.15"
+		"react-navigation": "^1.0.0-beta.15",
+		"react-sortable-hoc": "^0.6.8"
 	},
 	"devDependencies": {
 		"babel-jest": "21.2.0",

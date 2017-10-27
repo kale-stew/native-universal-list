@@ -1,4 +1,4 @@
-INSERT INTO Items 
-(Title)
+INSERT INTO items 
+(title)
 VALUES
 ($1);

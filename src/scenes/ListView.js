@@ -4,7 +4,8 @@ import {
     ScrollView, 
     TouchableOpacity, 
     Text,
-    ListView
+    ListView,
+    TextInput
 } from 'react-native';
 import { Card } from '../components/common';
 import firebase from 'firebase'
@@ -22,7 +23,7 @@ class List extends React.Component {
             title: '',
             stage: '',
             itemDataStore: ds,
-            checked: false
+            textInput: ''
         };
 
         this.itemsRef = this.getRef().child('items');
@@ -147,8 +148,20 @@ class List extends React.Component {
         return (
             <View style={styles.containerStyle}>
                 <ScrollView>
-                    
-                    <NewItem />
+
+                <View style={ styles.newItemContainer }>
+                    <TextInput 
+                        style={ styles.newItemInput }
+                        onChangeText={ (e) => this.setState({ textInput: e}) }
+                        autoCorrect={ false }
+                        placeholder="Add an item to your list"
+                        value={ this.state.textInput }
+                    />
+
+                    <TouchableOpacity onPress={ () => this.itemsRef.push({ title: this.state.textInput }) }>
+                        <Text style={ styles.newItemLabel }>⏎</Text>
+                    </TouchableOpacity>
+                </View>
 
                     <View style={styles.listContainer}>
                         <ListView 
@@ -171,6 +184,29 @@ class List extends React.Component {
 };
 
 const styles = {
+    newItemContainer: {
+        height: 40,
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+
+    newItemInput: {
+        color: '#000',
+        paddingLeft: 40,
+        fontSize: 18,
+        lineHeight: 23,
+        flex: 1
+    },
+    
+    newItemLabel: {
+        fontSize: 20,
+        flex: 2,
+        paddingLeft: 1,
+        paddingRight: 35,
+        paddingTop: 10
+    },
+
     containerStyle: {
         flex: 1,
         paddingTop: 40

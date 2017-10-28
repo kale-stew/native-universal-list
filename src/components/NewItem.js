@@ -5,21 +5,50 @@ import {
     Text,
     TouchableOpacity
 } from 'react-native';
+import firebase from 'firebase';
+
+// var database = firebase.database();
 
 class NewItem extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            title: '',
+            textInput: ''
+        }
+
+        this.handleAdd = this.handleAdd.bind( this );
+    }
+
+    handleAdd(value) {
+        this.itemsRef.push({
+            title: value
+        });
+
+        this.setState({
+            value: ''
+        });
+    }
+
     render() {
         return (
             <View style={ styles.containerStyle }>
                 <TextInput 
                     style={ styles.inputStyle }
+                    onChange={ (e) => this.setState({textInput: e}) }
                     autoCorrect={ false }
                     placeholder="Add an item to your list"
+                    value={ this.state.textInput }
                 />
-                <TouchableOpacity>
+                <TouchableOpacity onPress={ () => this.this.update.bind() }>
                     <Text style={ styles.labelStyle }>⏎</Text>
                 </TouchableOpacity>
             </View>
         )
+    }
+
+    update() {
+        this.props.onUpdate( this.refs.myInput.getDOMMode().value )
     }
 };
 

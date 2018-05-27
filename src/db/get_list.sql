@@ -1,2 +1,0 @@
-SELECT title
-FROM items;

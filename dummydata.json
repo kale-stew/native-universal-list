@@ -1,26 +1,26 @@
 [
-    {
-     "title": "Milk",    
-     "stage": "not yet purchased"
-   },
-   {
-     "title": "Butter",
-     "stage": "not yet purchased"
-   },
-   {
-     "title": "Coffee",
-     "stage": "Wnot yet purchased"
-   },
-   {
-     "title": "Broccoli",
-     "stage": "not yet purchased"
-   },
-   {
-     "title": "Chicken",
-     "stage": "not yet purchased"
-   },
-   {
+  {
+    "title": "Milk",
+    "stage": "not yet purchased"
+  },
+  {
+    "title": "Butter",
+    "stage": "not yet purchased"
+  },
+  {
+    "title": "Coffee",
+    "stage": "Wnot yet purchased"
+  },
+  {
+    "title": "Broccoli",
+    "stage": "not yet purchased"
+  },
+  {
+    "title": "Chicken",
+    "stage": "not yet purchased"
+  },
+  {
     "title": "Half and Half",
     "stage": "not yet purchased"
-    }
+  }
 ]
